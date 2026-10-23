@@ -1,0 +1,12 @@
+{
+  "name": "ctysc-2026-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:project03": "node scripts/build-project03.cjs",
+    "test": "node scripts/test-project03.cjs"
+  },
+  "devDependencies": {
+    "markdown-it": "14.1.1"
+  }
+}

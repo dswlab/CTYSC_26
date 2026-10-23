@@ -27,8 +27,11 @@ Do not commit plaintext teacher files, the local password, or full mixed student
 Requires Node.js 18+ and the private local `entry-drone-maze` source directory outside this repository:
 
 ```bash
+npm ci
 node scripts/build-project03.cjs ../entry-drone-maze
 ```
+
+The build uses `markdown-it` to render the private teacher manual into a self-contained HTML document before encryption. No Markdown library or external CDN is required in the browser.
 
 The initial password is randomly generated and stored **outside this repository** at `../.private/project03-password.txt`. The local password file is not part of the deployment. To rotate it, supply a strong `TEACHER_PASSWORD` environment variable or replace the local file, rebuild, and commit the newly encrypted bundle. If using the environment variable, maintain your own secure password record.
 

@@ -26,6 +26,12 @@ function decrypt(secret){
 }
 assert.throws(()=>decrypt('incorrect-password'));
 const data=decrypt(password);assert.equal(data.files.length,7);
+const manual=Buffer.from(data.files.find(f=>f.name==='teacher-manual.html').data,'base64').toString('utf8');
+assert(manual.includes('<h1>센서로 판단하는 미로'));
+assert(manual.includes('<h2>'));
+assert(manual.includes('<table>'));
+assert(manual.includes('<pre><code'));
+assert(!manual.includes('<pre># '));
 for(let n=1;n<=3;n++){
  const f=data.files.find(f=>f.name===`teacher-solution-map${n}.ent`);assert(f);
  assert(Buffer.from(f.data,'base64').equals(fs.readFileSync(path.join(root,`../entry-drone-maze/교사용_오른손규칙${n===1?'':`_맵${n}`}.ent`))));
