@@ -1,0 +1,10 @@
+node_modules/
+_site/
+.private/
+.env
+.env.*
+*password*.txt
+*secret*.txt
+teacher-plain/
+playwright-report/
+test-results/
